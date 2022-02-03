@@ -4,14 +4,7 @@ const puppeteer = require('puppeteer');
 const yeniCikanlar = async () => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
-  await page.setViewport({ width: 1200, height: 720 })
-  await page.goto('', { waitUntil: 'networkidle0' }); // wait until page load
-  await page.type('#txtEczaneKodu', '');
-  await page.type('#txtKullaniciAdi', '');
-  await page.type('#txtSifre', '');
-  await page.click('#btnGiris');
-  await page.waitForSelector('#ctl00_lblKullaniciAdi_Mimity')
-  await page.goto('', { waitUntil: 'networkidle0' }); // wait until page load
+  ...
   await page.click('#ctl00_ContentPlaceHolder1_chkSadeceStoktakiler', { waitUntil: 'networkidle0' }); // wait until page load)
   await page.waitForSelector('#ctl00_ContentPlaceHolder1_divGrid')
 
